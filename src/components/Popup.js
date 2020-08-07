@@ -9,7 +9,14 @@ function Popup({ selected, closePopup }) {
                 </h2>
                 <p className="rating">Rating: {selected.imdbRating}</p>
                 <div className="plot">
-                    <img src={selected.Poster} />
+                    {selected.Poster !== "N/A" ? (
+                        <img src={selected.Poster} alt={selected.Title} />
+                    ) : (
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Solid_black.svg/480px-Solid_black.svg.png"
+                            alt={selected.Title}
+                        />
+                    )}
                     <p>{selected.Plot}</p>
                 </div>
                 <button className="close" onClick={closePopup}>
